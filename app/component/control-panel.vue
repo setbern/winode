@@ -3,7 +3,7 @@
 		<device-status device-title="Server"></device-status>
 		<device-status device-title="Client"></device-status>
 		<!--<device-control></device-control>-->
-		<webview id="foo" src="component/twitter.html" style="display:inline-flex; width:420px; height:620px"></webview>
+		<webview id="foo" src="component/twitter.html" style="display:inline-flex; width:420px; height:630px"></webview>
 	</div>
 </template>
 
