@@ -3,6 +3,8 @@
 		div.row.align-items-center.header
 			div.col-auto.mr-auto.brand
 				img.brand-img(src='asset/gurum-inc.png')
+			div.col-auto.mr-auto.brand
+				p Bitcoin: <script>
 			div.col-auto.brand-title
 				p {{appTitle}}
 					span.oi.oi-fire
