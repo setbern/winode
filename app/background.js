@@ -7,8 +7,8 @@ let mainWindow;
 
 function createWindow() {
 	let options = {
-		width: 1680,
-		height: 912,
+		width: 1920,
+		height: 1080,
 		minWidth: 1200,
 		minHeight: 600
 	};

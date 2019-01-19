@@ -2,7 +2,8 @@
 	<div class="col-3 control-panel">
 		<device-status device-title="Server"></device-status>
 		<device-status device-title="Client"></device-status>
-		<device-control></device-control>
+		<!--<device-control></device-control>-->
+		<webview id="foo" src="component/twitter.html" style="display:inline-flex; width:420px; height:600px"></webview>
 	</div>
 </template>
 
