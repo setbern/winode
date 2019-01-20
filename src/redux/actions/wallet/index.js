@@ -8,7 +8,7 @@ function requestBalance() {
 	};
 }
 
-function receiveBalance() {
+function receiveBalance(data) {
 	return {
 		type: RECEIVE_BALANCE,
 		data,

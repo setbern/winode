@@ -1,5 +1,10 @@
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
+import styled, { ThemeProvider } from 'styled-components';
+
+import Theme from '../../constants/theme';
+
+const Container = styled.div``;
 
 class BalanceWidget extends Component {
 	componentDidMount() {
