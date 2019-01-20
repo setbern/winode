@@ -19,7 +19,7 @@ import DashboardCharts from './DashboardCharts';
 import StatusWidget from './StatusWidget';
 
 
-
+import { toggleDashboard } from '../redux/reducers/environment';
 
 
 
@@ -38,7 +38,7 @@ const WidgetWrapper = (props) => {
 					<div className='WidgetWrapperTitle' style={{ padding: '1rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
 						<Title  subtitle style={{ display: 'inline-block' }}>{props.title}</Title>
 						{!props.hideEdit ?
-							<span style={{ color: `${Colors.royalBlue}`}}>Edit</span> :
+							<Text subtext style={{ color: `${Colors.royalBlue}`}}>Edit</Text> :
 							null
 						}
 					</div>
@@ -50,7 +50,7 @@ const WidgetWrapper = (props) => {
 	)
 }
 
-const TerminalOutputWidget = (props) => {
+const TerminalOutputWidgetHome = (props) => {
 
 	function renderOutputLogs() {
 		return LOG_OUTPUT.map((d,i) => {
@@ -58,7 +58,7 @@ const TerminalOutputWidget = (props) => {
 		})
 	}
 	return (
-		<div className='TerminalOutputWidget'>
+		<div className='TerminalOutputWidgetHome'>
 			<div className='con'>
 				{
 					renderOutputLogs()
@@ -120,7 +120,7 @@ class HomeDashboard extends Component {
 			     			<WidgetWrapper
 			     				title={'Node Console'}
 			     			>
-			     				<TerminalOutputWidget />
+			     				<TerminalOutputWidgetHome />
 			     			</WidgetWrapper>
 			     			<SplitWidgetColumn>
 			     				<WidgetWrapper
@@ -130,9 +130,11 @@ class HomeDashboard extends Component {
 			     				</WidgetWrapper>
 			     				<SplitWidgetRow>
 			     					<WidgetWrapper title="Lightning">
-										 	<div style={{ fontSize: '1.25rem', height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-												<p style={{ margin: '0.5rem' }}>Balance: {balance}</p>
-												<p style={{ margin: '0.5rem' }}>On {openChannels} open channels</p>
+										 	<div 
+										 		onClick={() => this.props.toggleDashboard(false)}
+										 		style={{ fontSize: '1.25rem', height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+												<Text style={{ margin: '0.5rem' }}>Balance: {balance}</Text>
+												<Text style={{ margin: '0.5rem' }}><Text customColor={Colors.purple}>{openChannels} </Text> open channels</Text>
 											</div>
 											 {/* <div style={{ height: '100%', width: '100%', backgroundColor: `${Colors.purple}`, color: `${Colors.white}`, display: 'flex', justifyContent: 'center', alignItems: 'center', fontSize: '2rem' }}>
 											 	Lightning
@@ -140,7 +142,7 @@ class HomeDashboard extends Component {
 			     					</WidgetWrapper>
 			     					<WidgetWrapper>
 											<div style={{ display: 'flex', height: '100%', alignItems: 'center', justifyContent: 'center' }}>
-											<Text style={{ fontSize: '4rem', color: `${Colors.lightBlue}` }}>+</Text>
+												<Text style={{ fontSize: '4rem', color: `${Colors.lightBlue}` }}>+</Text>
 											</div>
 			     					</WidgetWrapper>
 			     				</SplitWidgetRow>
@@ -169,21 +171,7 @@ class HomeDashboard extends Component {
 				     			</SplitWidgetColumn>
 			     			}
 			     			
-			     			<SplitWidgetColumn
-			     				className='statsWrapperr'
-			     			>
-			     				<WidgetWrapper
-										 title={'Stats'}
-										 hideEdit
-			     				>
-			     					<StatusWidget />
-			     				</WidgetWrapper>
-			     				<WidgetWrapper
-
-			     				>
-			     					<Text style={{ fontSize: '2rem', color: `${Colors.lightBlue}` }}>+</Text>
-			     				</WidgetWrapper>
-			     			</SplitWidgetColumn>
+			     			
 			     		</DashBoardWrapper>
 			     	</div>
 		     	</ThemeProvider>
@@ -206,6 +194,7 @@ function mapDispatchToProps(dispatch) {
 		loadBalance() {
 			dispatch(loadWalletBalance());
 		},
+		toggleDashboard: (status) => dispatch(toggleDashboard(status)),
 	}
 }
 

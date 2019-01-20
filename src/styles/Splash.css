@@ -8,38 +8,88 @@
 	justify-content: center;
 	transition: all ease .5s;
 	opacity: 0;
+	overflow: hidden;
 }
 
 .Splash.page-appear{
-	opacity: 1;
+	opacity: 0;
 }
 
 .Splash.page-appear-active{
+	transition: all ease .3s .5s;
 	opacity: 1;
 }
 
 .Splash.page-enter{
-	opacity: 1;
+	opacity: 0;
 }
 
 .Splash.page-active{
+	transition: all ease .3s .5s;
 	opacity: 1;
 }
 
 .Splash.page-enter-done{
+	transition: all ease .3s .4s;
 	opacity: 1;
 }
 
 .Splash.page-exit{
-	opacity: 0;
+	opacity: 1;
+	transition: all ease .2s;
 }
 .Splash.page-exit-active{
+	transition: all ease .2s;
 	opacity: 0;
+	
 }
 .Splash.page-exit-done{
+	transition: all ease .2s;
 	opacity: 0;
+	
 }
 
+
+.Splash.page-appear .Side .WidgetMini{
+	opacity: 0;
+	transform: translateY(40px);
+}
+
+.Splash.page-appear-active .Side .WidgetMini{
+	transition: all ease .6s .7s;
+	transform: translateY(0px);
+	opacity: 1;
+
+}
+
+.Splash.page-enter .Side .WidgetMini{
+	opacity: 0;
+	transform: translateY(40px);
+}
+
+.Splash.page-active .Side .WidgetMini{
+	transition: all ease .6s .7s;
+	opacity: 1;
+	transform: translateY(0px);
+}
+
+.Splash.page-enter-done .Side .WidgetMini{
+	transition: all ease .6s .4s;
+	opacity: 1;
+	transform: translateY(0px);
+}
+
+.Splash.page-exit .Side .WidgetMini{
+	opacity: 1;
+	
+}
+.Splash.page-exit-active .Side .WidgetMini{
+	opacity: 0;
+	
+}
+.Splash.page-exit-done .Side .WidgetMini{
+	opacity: 0;
+}
 
 input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button {
     -webkit-appearance: none;
@@ -74,6 +124,7 @@ input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-i
 	padding: 16px 8px 12px 12px;
 	text-align: left;
 	margin-bottom: 24px;
+	transition: all ease .4s;
 }
 
 .TerminalTextSection{

@@ -56,7 +56,11 @@ class Splash extends Component {
 		if (item.length == 6) {
 			console.log('at end of length')
 			this.props.togglePinOverlay(false);
-			this.props.toggleHomePage(true);
+			setTimeout(() => {
+				this.props.toggleHomePage(true);
+				this.props.toggleDashboard(true)
+			}, 2000);
+			
 		}
 	}
 	render() {

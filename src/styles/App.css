@@ -11,6 +11,31 @@
   right: 0;
   bottom: 0;
   z-index: -1;
+  transition: all ease .2s;
+}
+
+.OtherDashBoardThing.page-enter{
+  opacity: 0;
+}
+
+.OtherDashBoardThing.page-active{
+  transition: all ease .3s .4s;
+  opacity: 1;
+}
+
+.OtherDashBoardThing.page-enter-done{
+  transition: all ease .3s .4s;
+  opacity: 1;
+}
+
+.OtherDashBoardThing.page-exit{
+  opacity: 1;
+  max-height: 230434028034px;
+}
+.OtherDashBoardThing.page-exit-active{
+  transition: all ease .2s;
+  opacity: 0;
+  max-height: 0;
 }
 
 .DashBoardThing{
@@ -19,6 +44,39 @@
   left: 0;
   top: 64px;
 }
+
+.OtherDashBoardThing{
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  transition: all ease .2s;
+}
+
+.DashBoardThing.page-enter{
+  opacity: 0;
+}
+
+.DashBoardThing.page-active{
+  transition: all ease .3s .4s;
+  opacity: 1;
+}
+
+.DashBoardThing.page-enter-done{
+  transition: all ease .3s .4s;
+  opacity: 1;
+}
+
+.DashBoardThing.page-exit{
+  opacity: 1;
+  max-height: 230434028034px;
+}
+.DashBoardThing.page-exit-active{
+  transition: all ease .2s;
+  opacity: 0;
+  max-height: 0;
+}
+
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 40vmin;

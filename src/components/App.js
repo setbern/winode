@@ -50,7 +50,7 @@ class App extends Component {
 	     			appear={true}
 	     			timeout={{
 	     				enter: 1000,
-	     				exit: 500
+	     				exit: 800
 	     			}}
 	     		>
 	     			<Splash />
@@ -60,31 +60,51 @@ class App extends Component {
 	     			classNames='page'
 	     			timeout={{
 	     				enter: 1500,
-	     				exit: 500
+	     				exit: 800
 	     			}}
 	     		>
-	     			<React.Fragment>
-		     			<Navigation />
-		     			<DashBoardThing />
-				     	<OtherDashBoardThing />
-				    </React.Fragment>
+		     		<Navigation />	
+		     	</AnimationWrapper>
+	     		<AnimationWrapper
+	     			in={this.props.home}
+	     			classNames='page'
+	     			timeout={{
+	     				enter: 1500,
+	     				exit: 800
+	     			}}
+	     		>
+		     		<DashBoardThing /> 	
 	     		</AnimationWrapper>
+
+	     		<AnimationWrapper
+	     			in={this.props.home}
+	     			classNames='page'
+	     			timeout={{
+	     				enter: 1500,
+	     				exit: 800
+	     			}}
+	     		>
+	     			
+				    <OtherDashBoardThing />
+	     		</AnimationWrapper>
+
 	     		<AnimationWrapper
 	     			in={ this.props.home && this.props.dashboard}
 	     			classNames='page'
 	     			timeout={{
 	     				enter: 1500,
-	     				exit: 500
+	     				exit: 800
 	     			}}
 	     		>
 	     			<HomeDashboard />
 	     		</AnimationWrapper>
+
 	     		<AnimationWrapper
 	     			in={this.props.home && !this.props.dashboard}
 	     			classNames='page'
 	     			timeout={{
 	     				enter: 1500,
-	     				exit: 500
+	     				exit: 800
 	     			}}
 	     		>
 	     			<LightningPage />

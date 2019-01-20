@@ -3,6 +3,47 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	opacity: 0;
+}
+
+
+.LightningPage.page-appear{
+	opacity: 0;
+}
+
+.LightningPage.page-appear-active{
+	transition: all ease .3s .2s;
+	opacity: 1;
+}
+
+.LightningPage.page-enter{
+	opacity: 0;
+}
+
+.LightningPage.page-active{
+	transition: all ease .3s .2s;
+	opacity: 1;
+}
+
+.LightningPage.page-enter-done{
+	transition: all ease .3s .2s;
+	opacity: 1;
+}
+
+.LightningPage.page-exit{
+	opacity: 1;
+	max-height: 230434028034px;
+}
+.LightningPage.page-exit-active{
+	transition: all ease .2s;
+	opacity: 0;
+	max-height: 0;
+}
+.LightningPage.page-exit-done{
+	transition: all ease .2s;
+	opacity: 0;
+	max-height: 0;
+	opacity: 0;
 }
 
 .DashBoardWrapper{

@@ -6,6 +6,45 @@
 	align-items: center;
 }
 
+.HomeDashboard.page-appear{
+	opacity: 0;
+}
+
+.HomeDashboard.page-appear-active{
+	transition: all ease .3s .2s;
+	opacity: 1;
+}
+
+.HomeDashboard.page-enter{
+	opacity: 0;
+}
+
+.HomeDashboard.page-active{
+	transition: all ease .3s .2s;
+	opacity: 1;
+}
+
+.HomeDashboard.page-enter-done{
+	transition: all ease .3s .2s;
+	opacity: 1;
+}
+
+.HomeDashboard.page-exit{
+	opacity: 1;
+	max-height: 230434028034px;
+}
+.HomeDashboard.page-exit-active{
+	transition: all ease .2s;
+	opacity: 0;
+	max-height: 0;
+}
+.HomeDashboard.page-exit-done{
+	transition: all ease .2s;
+	opacity: 0;
+	max-height: 0;
+	opacity: 0;
+}
+
 
 .OtherDashBoardThing{
 
@@ -37,7 +76,7 @@
 	text-align: left;
 	margin: 2px 8px 2px 8px;
 }
-.TerminalOutputWidget{
+.TerminalOutputWidgetHome{
 	max-width: 250px;	
 	background-color: #181A1C;
 	display: flex;
@@ -48,7 +87,7 @@
 
 }
 
-.TerminalOutputWidget p{
+.TerminalOutputWidgetHome p{
 	text-overflow: clip;
 	white-space: wrap;
 	text-align: left;
@@ -138,7 +177,7 @@
 	bottom: 0;
 	background-color: #00D1B2;
 	width: 8px;
-	height: 50%;
+	height: 40%;
 }
 .hor{
 	position: absolute;
@@ -148,7 +187,7 @@
 	top: 0;
 	bottom: 0;
 	background-color: #00D1B2;
-	width: 50%;
+	width: 35%;
 	height: 8px;
 	
 }

@@ -10,10 +10,49 @@
 	align-items: center;
 	justify-content: flex-start;
 }
+.Navigation.page-appear{
+	opacity: 0;
+}
+
+.Navigation.page-appear-active{
+	transition: all ease .3s .5s;
+	opacity: 1;
+}
+
+.Navigation.page-enter{
+	opacity: 0;
+}
+
+.Navigation.page-active{
+	transition: all ease .3s .5s;
+	opacity: 1;
+}
+
+.Navigation.page-enter-done{
+	transition: all ease .3s .4s;
+	opacity: 1;
+}
+
+.Navigation.page-exit{
+	opacity: 1;
+	max-height: 230434028034px;
+}
+.Navigation.page-exit-active{
+	transition: all ease .4s;
+	opacity: 0;
+	max-height: 0;
+}
+.Navigation.page-exit-done{
+	transition: all ease .4s;
+	opacity: 0;
+	max-height: 0;
+	opacity: 0;
+}
 .Navigation p {
 	z-index: 100;
 	margin-left: 32px;
 }
+
 
 .NavThing{
 	position: absolute;
