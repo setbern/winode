@@ -6,6 +6,19 @@
   width: 100vw;
 }
 
+.OtherDashBoardThing{
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
+.DashBoardThing{
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  top: 64px;
+}
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 40vmin;

@@ -10,6 +10,33 @@ import LightningPage from '../pages/LightningPage';
 
 import { togglePinOverlay, toggleHomePage, toggleDashboard } from '../redux/reducers/environment';
 
+const OtherDashBoardThing = () => {
+	return(
+		<div className='OtherDashBoardThing'>
+			<svg width="140px" height="136px" viewBox="0 0 140 136" version="1.1" xmlns="http://www.w3.org/2000/svg" >
+			    <g id="UX" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+			        <g id="Home-Dashboard" transform="translate(-995.000000, -495.000000)" fill="#00D1B2">
+			            <polygon id="Rectangle" points="1065 563 1135 495 1135 631 995 631"></polygon>
+			        </g>
+			    </g>
+			</svg>
+		</div>
+	)
+}
+const DashBoardThing = () => {
+	return (
+		<div className='DashBoardThing'>
+			<svg width="177px" height="116px" viewBox="0 0 177 116" version="1.1" xmlns="http://www.w3.org/2000/svg" >
+			    <g id="UX" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+			        <g id="Home-Dashboard" transform="translate(0.000000, -65.000000)" fill="#00D1B2">
+			            <polygon id="Rectangle" points="0 65 177 65 88.5 123 0 181"></polygon>
+			        </g>
+			    </g>
+			</svg>
+		</div>
+	)
+}
+
 class App extends Component {
 
 	
@@ -36,7 +63,11 @@ class App extends Component {
 	     				exit: 500
 	     			}}
 	     		>
-	     			<Navigation />
+	     			<React.Fragment>
+		     			<Navigation />
+		     			<DashBoardThing />
+				     	<OtherDashBoardThing />
+				    </React.Fragment>
 	     		</AnimationWrapper>
 	     		<AnimationWrapper
 	     			in={ this.props.home && this.props.dashboard}

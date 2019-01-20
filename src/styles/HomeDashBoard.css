@@ -11,18 +11,8 @@
 
 }
 
-.DashBoardThing{
-	position: absolute;
-	z-index: -1;
-	left: 0;
-	top: 0;
-}
-.OtherDashBoardThing{
-	position: absolute;
-	right: 0;
-	bottom: 0;
-	z-index: -1;
-}
+
+
 
 .DashBoardWrapper{
 	margin: 16px;
@@ -41,10 +31,7 @@
 	cursor: pointer;
 }
 
-.WidgetWrapper:hover {
-	box-shadow: 0 8px 12px 0 rgba(0,0,0,0.5);
-	transition: 0.5s;
-}
+
 
 .WidgetWrapperTitle{
 	text-align: left;

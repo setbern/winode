@@ -78,12 +78,12 @@ export default class LightningPage extends Component {
 							<WidgetWrapper
 								title='Send'
 							>
-
+								<TransactionWidget />
 							</WidgetWrapper>
 							<WidgetWrapper
 								title='Balance'
 							>
-								
+								<BalanceWidget />
 							</WidgetWrapper>
 						</SplitWidgetColumn>
 						<WidgetWrapper

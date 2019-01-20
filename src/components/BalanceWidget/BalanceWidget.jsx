@@ -6,8 +6,19 @@ import styled, { ThemeProvider } from 'styled-components';
 import { loadWalletBalance } from '../../redux/actions/wallet';
 import Theme from '../../constants/theme';
 
-const Container = styled.div``;
+import Text from '../Text';
+import TerminalText from '../TerminalText';
 
+const Container = styled.div`
+	display: flex;
+	flex-direction: row;
+	padding-left: 12px;
+	background-color: white;
+`;
+
+const MarignText = styled(Text) `
+	margin-left: 12px;
+`
 class BalanceWidget extends Component {
 	componentDidMount() {
 		const { loadBalance } = this.props;
@@ -20,7 +31,8 @@ class BalanceWidget extends Component {
 		return (
 			<ThemeProvider theme={Theme}>
 				<Container>
-					Balance: {balance} satoshi
+					<TerminalText>{balance}</TerminalText>
+					<MarignText>satoshi</MarignText>
 				</Container>
 			</ThemeProvider>
 		);

@@ -4,17 +4,61 @@ import styled, { ThemeProvider } from 'styled-components';
 
 import { sendMoney } from '../../redux/actions/transactions';
 import Theme from '../../constants/theme';
+import colors from '../../constants/colors';
+import Text from '../Text';
+
+const InputText = styled.input`
+	background-color: ${colors.black}
+	font-family: PT Mono;
+	color: ${colors.green};
+	width: 450px;
+	height: 50px;
+	padding-left: 12px;
+	border: none;
+	marign: 8px;
+
+	::placeholder {
+ 	 	color: ${colors.green};
+  		
+	}
+`
 
 const Container = styled.div`
 	display: flex;
 	flex-direction: column;
+	align-items: flex-start;
+	background-color: white;
 `;
-const AddressField = styled.input``;
+const AddressField = styled(InputText)`
+	
+	
+`;
+const PadddingText = styled(Text)`
+	padding-left: 12px;
+`
 const Row = styled.div`
 	display: flex;
 `;
-const AmountField = styled.input``;
-const SendButton = styled.button``;
+const AmountField = styled(InputText)`
+	background-color: ${colors.black}
+`;
+const SendButton = styled.button`
+	margin-top: 16px;
+	width: 120px;
+	height: 40px;
+	border: none;
+	background-color: ${colors.purple};
+	color: white;
+	margin-bottom: 12px;
+	margin-left: 8px;
+	transition: all ease .3s;
+	:hover{
+		box-shadow: 0 6px 12px 0 rgba(0,0,0,0.20), 0 1px 4px 0 rgba(0,0,0,0.30);
+	}
+	:active{
+		box-shadow: 0 2px 4px 0 rgba(0,0,0,0.20), 0 1px 3px 0 rgba(0,0,0,0.30);
+	}
+`;
 
 class TransactionWidget extends Component {
 	constructor(props) {
@@ -54,15 +98,20 @@ class TransactionWidget extends Component {
 		return (
 			<ThemeProvider theme={Theme}>
 				<Container>
-					<AddressField value={address} onChange={this.handleAddressChange} />
+					<PadddingText>Address to send funds to</PadddingText>
+					<AddressField 
+						value={address} 
+						onChange={this.handleAddressChange} 
+						placeholder="Address"
+					/>
+					<PadddingText>Amount to send</PadddingText>
 
-					<Row>
-						<AmountField value={transactionAmount} onChange={this.handleAmountChange} />
 
-						<SendButton onClick={this.handleSendClick}>
-							Send
-						</SendButton>
-					</Row>
+					<AmountField value={transactionAmount} onChange={this.handleAmountChange} />
+
+					<SendButton onClick={this.handleSendClick}>
+						Send
+					</SendButton>
 				</Container>
 			</ThemeProvider>
 		);
