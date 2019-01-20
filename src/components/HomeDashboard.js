@@ -4,7 +4,12 @@ import Theme from '../constants/theme';
 
 import '../styles/HomeDashBoard.css';
 
+import { LOG_OUTPUT } from '../constants';
+
 import Title from './Title';
+import TerminalText from './TerminalText';
+import RedditWidget from './RedditWidget';
+import DashboardCharts from './DashboardCharts';
 
 const OtherDashBoardThing = () => {
 	return(
@@ -32,27 +37,57 @@ const DashBoardThing = () => {
 		</div>
 	)
 }
-const NavThing = () => {
+
+
+
+
+const DashBoardWrapper = (props) => {
 	return (
-		<div className='NavThing'>
-			<svg width="284px" height="65px" viewBox="0 0 284 65" version="1.1" xmlns="http://www.w3.org/2000/svg">
-				    <g id="UX" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-				        <g id="Home-Dashboard" fill="#00D1B2">
-				            <g id="Nav">
-				                <polygon id="Rectangle" points="1.13686838e-13 -1.42108547e-14 283.289203 -1.42108547e-14 178 65 1.13686838e-13 65"></polygon>
-				            </g>
-				        </g>
-				    </g>
-			</svg>
+		<div className='DashBoardWrapper'>
+			{props.children}
+		</div>
+	)
+}
+const WidgetWrapper = (props) => {
+	return (
+		<div className='WidgetWrapper'>
+			<div className='WidgetWrapperTitle'>
+				<Title subtitle>{props.title}</Title>
+			</div>
+			{props.children}
 		</div>
 	)
 }
 
-const Navigation = (props) => {
+const TerminalOutputWidget = (props) => {
+
+	function renderOutputLogs() {
+		return LOG_OUTPUT.map((d,i) => {
+			return <TerminalText terminal key={'ter-text-' + i}>{d}</TerminalText>
+		})
+	}
 	return (
-		<div class='Navigation'>
-			<NavThing />
-			<Title>WiNode</Title>
+		<div className='TerminalOutputWidget'>
+			<div className='con'>
+				{
+					renderOutputLogs()
+				}
+			</div>
+		</div>
+	)
+}
+
+const SplitWidgetColumn = (props) => {
+	return (
+		<div className='SplitWidgetColumn'>
+			{props.children}
+		</div>
+	)
+}
+const SplitWidgetRow = (props) => {
+	return (
+		<div className='SplitWidgetRow'>
+			{props.children}
 		</div>
 	)
 }
@@ -63,9 +98,51 @@ export default class HomeDashboard extends Component {
 	      return (  
 	      		<ThemeProvider theme={Theme.light}>
 			     	<div className='HomeDashboard'>
-			     		<Navigation />
 			     		<DashBoardThing />
 			     		<OtherDashBoardThing />
+			     		<DashBoardWrapper>
+			     			<WidgetWrapper
+			     				title={'Node Console'}
+			     			>
+			     				<TerminalOutputWidget />
+			     			</WidgetWrapper>
+			     			<SplitWidgetColumn>
+			     				<WidgetWrapper
+			     					title={'Price Chart'}
+			     				>
+			     					<DashboardCharts />
+			     				</WidgetWrapper>
+			     				<SplitWidgetRow>
+			     					<WidgetWrapper
+			     						title={'Activity'}
+			     					>
+			     					
+			     					</WidgetWrapper>
+			     					<WidgetWrapper
+			     						title={'Terminal'}
+			     					>
+			     					
+			     					</WidgetWrapper>
+			     				</SplitWidgetRow>
+			     			</SplitWidgetColumn>
+			     			<WidgetWrapper
+			     				title={'Reddit Stream'}
+			     			>
+			     				<RedditWidget />
+			     			</WidgetWrapper>
+			     			<SplitWidgetColumn>
+			     				<WidgetWrapper
+			     					title={'Stats'}
+			     				>
+			     				
+			     				</WidgetWrapper>
+			     				<WidgetWrapper
+			     					title={''}
+			     				>
+			     				
+			     				</WidgetWrapper>
+			     			</SplitWidgetColumn>
+			     		</DashBoardWrapper>
 			     	</div>
 		     	</ThemeProvider>
 	    );

@@ -1,30 +1,11 @@
 .HomeDashboard{
-	height: 100vh;
-	width: 100vw;
 	position: relative;
-}
-
-.Navigation{
-	height: 64px;
-	width: 100%;
-	background: #F9FAFC;
-	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
-	position: relative;
-	z-index: 100;
 	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: flex-start;
-}
-.Navigation p {
-	z-index: 100;
-	margin-left: 4%;
+	flex-direction: column;
+	//align-items: center;
 }
 
-.NavThing{
-	position: absolute;
-	left: 0;
-}
+
 .OtherDashBoardThing{
 
 }
@@ -33,11 +14,65 @@
 	position: absolute;
 	z-index: -1;
 	left: 0;
-	top: 65;
+	top: 0;
 }
 .OtherDashBoardThing{
 	position: absolute;
 	right: 0;
 	bottom: 0;
 	z-index: -1;
+}
+
+.DashBoardWrapper{
+	margin: 16px;
+	display: flex;
+	flex-grow: 1;
+	flex-direction: row;
+	justify-content: flex-start;
+	max-width: 1600px;
+}
+
+.WidgetWrapper{
+	background-color: #F9FAFC;
+	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
+	display: flex;
+	flex-direction: column;
+}
+
+.WidgetWrapperTitle{
+	text-align: left;
+	margin: 8px 8px 8px 8px;
+}
+.TerminalOutputWidget{
+	max-width: 250px;	
+	background-color: #181A1C;
+	display: flex;
+	flex-grow: 1;
+	flex-direction: column;
+	overflow: hidden;
+	overflow-y: scroll;
+
+}
+
+.TerminalOutputWidget p{
+	text-overflow: clip;
+	white-space: wrap;
+	text-align: left;
+	padding-left: 4px;
+	padding-right: 4px;
+}
+
+.SplitWidgetRow{
+	display: flex;
+	flex-direction: row;
+}
+.SplitWidgetColumn .WidgetWrapper{
+	position: relative;
+}
+
+.SplitWidgetColumn{
+	margin-right: 8px;
+	margin-left: 8px;
+	display: flex;
+	flex-direction: column;
 }

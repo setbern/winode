@@ -15,6 +15,10 @@ const TerminalText = styled.p`
         font-size: 48px;
         
     `}
+   	${is('terminal') `
+        font-size: 14px;
+            
+    `}
 
     ${is('bold') `
         font-weight: 700;

@@ -8,6 +8,11 @@ const Title = styled.p`
 
 	color: ${props => props.theme.title};
 
+	
+	${is('subtitle') `
+        font-size: 22px;
+        
+    `}
 	${is('mainTitle') `
         font-size: 48px;
         

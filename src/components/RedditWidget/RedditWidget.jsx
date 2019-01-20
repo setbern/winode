@@ -37,6 +37,7 @@ class RedditWidget extends Component {
 
   renderPosts() {
     const { posts } = this.props;
+          console.log('post', posts)
 
     return posts.map((post, i) => {
       return (
@@ -53,10 +54,13 @@ class RedditWidget extends Component {
 
     return (
       <div>
-        <input value={search} onChange={this.handleSubredditChange} />
-        <button onClick={this.handleSearchSubmit}>
-          Search
-        </button>
+        {
+          // <input value={search} onChange={this.handleSubredditChange} />
+          // <button onClick={this.handleSearchSubmit}>
+          //   Search
+          // </button>
+        }
+        
         Currently showing r/{selectedSubreddit}
         {this.renderPosts()}
       </div>
