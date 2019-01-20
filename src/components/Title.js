@@ -5,9 +5,20 @@ import is from 'styled-is';
 const Title = styled.p`
 	font-family: Helvetica;
 	transition: all ease .3s;
-
+    margin: 0;
+    margin-top: .7em;
+    margin-bottom: .7em;
 	color: ${props => props.theme.title};
 
+	
+	${is('subtitle') `
+        font-size: 22px;
+        
+    `}
+    ${is('reddit') `
+        font-size: 14px;
+        
+    `}
 	${is('mainTitle') `
         font-size: 48px;
         

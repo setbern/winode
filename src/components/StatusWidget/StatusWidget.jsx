@@ -6,11 +6,28 @@ import styled, { ThemeProvider } from 'styled-components';
 import { loadStatuses } from '../../redux/actions/status';
 import Theme from '../../constants/theme';
 
-const Container = styled.div`
-	display: flex;
-	flex-direction: column;
-`;
-const StatusIndicator = styled.div``;
+
+import "../../styles/StatusWidget.css";
+
+import TerminalText from '../TerminalText';
+import Text from '../Text';
+
+const StatusContainer = (props) => {
+	return (
+		<div className='StatusWidget'>
+			{props.children}
+		</div>
+	)
+}
+
+const StatusIndicator = (props) => {
+	return (
+		<div className='StatusIndicator'>
+			{props.children}
+		</div>
+	)
+}
+
 
 class StatusWidget extends Component {
 	componentDidMount() {
@@ -22,27 +39,27 @@ class StatusWidget extends Component {
 
 		return (
 			<ThemeProvider theme={Theme.light}>
-				<Container>
+				<StatusContainer>
 					<StatusIndicator>
-						Peers:
-						{peers}
+						<Text>Peers:</Text>
+						<TerminalText>{peers}</TerminalText>
 					</StatusIndicator>
 
 					<StatusIndicator>
-						Open Channels:
-						{openChannels}
+						<Text>Open Channels:</Text>
+						<TerminalText>{openChannels}</TerminalText>
 					</StatusIndicator>
 
 					<StatusIndicator>
-						Block Height:
-						{blockHeight}
+						<Text>Block Height:</Text>
+						<TerminalText>{blockHeight}</TerminalText>
 					</StatusIndicator>
 
 					<StatusIndicator>
-						Warnings:
-						{warnings}
+						<Text>Warnings:</Text>
+						<TerminalText error>{warnings}</TerminalText>
 					</StatusIndicator>
-				</Container>
+				</StatusContainer>
 			</ThemeProvider>
 		);
 	}

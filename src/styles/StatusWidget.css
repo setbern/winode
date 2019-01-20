@@ -1,0 +1,22 @@
+.StatusWidget{
+	flex: 1;
+	
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
+
+}
+
+.StatusIndicator{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+}
+
+.StatusIndicator p {
+	margin: 0;
+	margin: 10px 0px;
+}

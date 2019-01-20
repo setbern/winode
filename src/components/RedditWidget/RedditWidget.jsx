@@ -10,14 +10,10 @@ import Theme from '../../constants/theme';
 
 const DEFAULT_SUBREDDIT = 'bitcoin';
 
-const Container = styled.div``;
 const PostsContainer = styled.div`
-  background: ${props => props.theme.black};
+  background-color: ${props => props.theme.subBackground}
 `;
-const WidgetTitle = styled.div`
-  background: ${props => props.theme.background};
-  color: ${props => props.theme.title};
-`;
+
 
 class RedditWidget extends Component {
   constructor(props) {
@@ -50,6 +46,7 @@ class RedditWidget extends Component {
 
   renderPosts() {
     const { posts } = this.props;
+          console.log('post', posts)
 
     console.log('posts', posts);
     return posts.map(post => {
@@ -64,16 +61,13 @@ class RedditWidget extends Component {
     const { search } = this.state;
 
     return (
-      <ThemeProvider theme={Theme.light}>
-        <Container>
-          <WidgetTitle>
-            Reddit Stream
-          </WidgetTitle>
 
-          <PostsContainer>
+      <ThemeProvider theme={Theme.light}>
+          <PostsContainer
+            className='PostsContainer'
+          >
             {this.renderPosts()}
           </PostsContainer>
-        </Container>
       </ThemeProvider>
     );
   }

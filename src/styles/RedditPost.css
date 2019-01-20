@@ -1,0 +1,32 @@
+.RedditPost{
+	margin-bottom: 4px;
+	min-height: 100px;
+	max-height: 140px;
+	max-width: 270px;
+	padding-bottom: 8px;
+	display: flex;
+	flex-direction: row;
+	overflow: hidden;
+
+}
+
+.PostContent{
+	flex: 4.5;
+	margin-top: 8px;
+	text-align: left;
+	overflow: hidden;
+	word-wrap: break-word
+
+}
+.PostContent p {
+	text-overflow: ellipsis;
+	margin: 0;
+	word-wrap: break-word;
+	margin-bottom: 4px;
+}
+
+.RedditVoter{
+	width: 30px;
+	height: inherit;
+	flex: 1;
+}

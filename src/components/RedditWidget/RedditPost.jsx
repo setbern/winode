@@ -1,18 +1,25 @@
 import { get } from "lodash";
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import styled from "styled-components";
+
+
+
+import "../../styles/RedditPost.css";
 
 import Colors from "../../constants/colors";
 
+import Title from '../Title';
+import Text from '../Text';
+
 const PostContainer = styled.a`
-	border-bottom: 1px solid black;
 	cursor: pointer;
 	display: block;
 	text-decoration: none;
+	margin-bottom: 4px;
+	background-color: ${props => props.theme.background}
 `;
-const PostContent = styled.div`
-	color: ${Colors.white};
-`;
+
+
 const PostTitle = styled.div`
 	font-weight: 700;
 `;
@@ -29,14 +36,19 @@ const PostMedia = styled.img`
 	width: ${props => props.width};
 `;
 
-const VoterContainer = styled.div``;
 
-const TextContent = styled.div``;
-
-const RedditVoter = () => {
+const PostContent = (props) => {
 	return (
-		<VoterContainer>
-		</VoterContainer>
+		<div className='PostContent'>
+			{props.children}
+		</div>
+	)
+}
+const RedditVoter = (props) => {
+	return (
+		<div className='RedditVoter'>
+			{props.children}
+		</div>
 	)
 };
 
@@ -59,29 +71,31 @@ export default class RedditPost extends Component {
 	renderTextContent() {
 		const { post } = this.props;
 
-		console.log('post is', post);
 		return (
-			<TextContent>
-				<PostTitle>{get(post, "title")}</PostTitle>
-
-				<PostSource>{get(post, "subreddit_name_prefixed")}</PostSource>
-
-				<PostBody>{get(post, "selftext")}</PostBody>
-			</TextContent>
+			<Fragment>
+				<Title reddit>{get(post, 'title')}</Title>
+				<Text subtext>{get(post, "subreddit_name_prefixed")}</Text>
+				<Text reddit>{get(post, "selftext")}</Text>
+			</Fragment>
 		);
 	}
 
 	render() {
+
 		const { post } = this.props;
 
 		return (
-			<PostContainer href={get(post, 'url')} target="_blank">
+			<PostContainer 
+				href={get(post, 'url')} 
+				target="_blank"
+				className='RedditPost'
+			>
 				<RedditVoter />
 
 				<PostContent>
-					{get(post, "media")
-						? this.renderMediaContent()
-						: this.renderTextContent()}
+					{
+						this.renderTextContent()
+					}
 				</PostContent>
 			</PostContainer>
 		);

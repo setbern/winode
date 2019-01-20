@@ -17,6 +17,8 @@ class App extends Component {
     return (
       <div>
         <LightningPage />
+        {/* <RedditWidget />
+        <StatusWidget /> */}
       </div>
     );
   }

@@ -17,6 +17,13 @@ const Text = styled.p`
     	font-size: 18px;
     `}
 
+    ${is('subtext')`
+    	font-size: 11px;
+    `}
+    ${is('reddit')`
+    	font-size: 9px;
+    `}
+
 `
 
 export default Text

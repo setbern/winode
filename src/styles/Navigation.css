@@ -1,0 +1,21 @@
+.Navigation{
+	min-height: 64px;
+	width: 100%;
+	background: #F9FAFC;
+	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
+	position: relative;
+	z-index: 100;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: flex-start;
+}
+.Navigation p {
+	z-index: 100;
+	margin-left: 20px;
+}
+
+.NavThing{
+	position: absolute;
+	left: 0;
+}
