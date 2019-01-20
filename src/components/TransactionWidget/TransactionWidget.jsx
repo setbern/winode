@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import { get } from 'lodash';
 import React, { Component } from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 
@@ -90,9 +91,15 @@ class TransactionWidget extends Component {
 			amount: transactionAmount,
 			address,
 		});
+
+		this.setState({
+			amount: 0,
+			address: '',
+		});
 	}
 
 	render() {
+		const { isFetching } = this.props;
 		const { transactionAmount, address } = this.state;
 
 		return (
@@ -109,8 +116,8 @@ class TransactionWidget extends Component {
 
 					<AmountField value={transactionAmount} onChange={this.handleAmountChange} />
 
-					<SendButton onClick={this.handleSendClick}>
-						Send
+					<SendButton onClick={this.handleSendClick} disabled={!!isFetching}>
+						{isFetching ? 'Sending...' : 'Send'}
 					</SendButton>
 				</Container>
 			</ThemeProvider>
@@ -119,7 +126,9 @@ class TransactionWidget extends Component {
 }
 
 function mapStateToProps(state) {
-	return {};
+	return {
+		isFetching: get(state, 'transaction.isFetching'),
+	};
 }
 
 function mapDispatchToProps(dispatch) {
