@@ -60,8 +60,12 @@ const WidgetWrapper = (props) => {
 		<div className='WidgetWrapper'>
 			{
 				props.title ?
-					<div className='WidgetWrapperTitle'>
-						<Title  subtitle>{props.title}</Title>
+					<div className='WidgetWrapperTitle' style={{ padding: '1rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+						<Title  subtitle style={{ display: 'inline-block' }}>{props.title}</Title>
+						{!props.hideEdit ?
+							<span style={{ color: `${Colors.royalBlue}`}}>Edit</span> :
+							null
+						}
 					</div>
 				:
 					null
@@ -149,18 +153,18 @@ class HomeDashboard extends Component {
 			     				</WidgetWrapper>
 			     				<SplitWidgetRow>
 			     					<WidgetWrapper title="Lightning">
-										 	<div style={{ fontSize: '1.25rem' }}>
-												<p style={{}}>Balance: {balance}</p>
-												<p style={{}}>On {openChannels} open channels</p>
+										 	<div style={{ fontSize: '1.25rem', height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+												<p style={{ margin: '0.5rem' }}>Balance: {balance}</p>
+												<p style={{ margin: '0.5rem' }}>On {openChannels} open channels</p>
 											</div>
 											 {/* <div style={{ height: '100%', width: '100%', backgroundColor: `${Colors.purple}`, color: `${Colors.white}`, display: 'flex', justifyContent: 'center', alignItems: 'center', fontSize: '2rem' }}>
 											 	Lightning
 											</div> */}
 			     					</WidgetWrapper>
-			     					<WidgetWrapper
-			     						title={'Terminal'}
-			     					>
-			     						<TerminalWidget />
+			     					<WidgetWrapper>
+											<div style={{ display: 'flex', height: '100%', alignItems: 'center', justifyContent: 'center' }}>
+											<Text style={{ fontSize: '4rem', color: `${Colors.lightBlue}` }}>+</Text>
+											</div>
 			     					</WidgetWrapper>
 			     				</SplitWidgetRow>
 			     			</SplitWidgetColumn>
@@ -173,14 +177,15 @@ class HomeDashboard extends Component {
 			     				className='statsWrapperr'
 			     			>
 			     				<WidgetWrapper
-			     					title={'Stats'}
+										 title={'Stats'}
+										 hideEdit
 			     				>
 			     					<StatusWidget />
 			     				</WidgetWrapper>
 			     				<WidgetWrapper
 
 			     				>
-			     					<Text>testing</Text>
+			     					<Text style={{ fontSize: '2rem', color: `${Colors.lightBlue}` }}>+</Text>
 			     				</WidgetWrapper>
 			     			</SplitWidgetColumn>
 			     		</DashBoardWrapper>

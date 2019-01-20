@@ -89,8 +89,8 @@ export default class RedditPost extends Component {
 				href={get(post, 'url')} 
 				target="_blank"
 				className='RedditPost'
+				style={{ padding: '1rem' }}
 			>
-				<RedditVoter />
 
 				<PostContent>
 					{
