@@ -25,6 +25,7 @@ export function loadStatuses() {
 		dispatch(requestStatuses());
 
 		return fetch('http://localhost:4200/lightning-status')
+			.then(response => response.json())
 			.then(data => {
 				console.log('got data', data);
 				return dispatch(receiveStatuses(data));
