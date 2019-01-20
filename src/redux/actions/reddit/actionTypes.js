@@ -1,0 +1,1 @@
+export const LOAD_SUBREDDIT = 'LOAD_SUBREDDIT';
