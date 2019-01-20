@@ -13,10 +13,12 @@ function receiveStatuses(data) {
 	const { block_height, num_peers, num_active_channels } = data;
 	return {
 		type: RECEIVE_STATUSES,
-		blockHeight: block_height,
-		peers: num_peers,
-		openChannels: num_active_channels,
-		warnings: 2,
+		data: {
+			blockHeight: block_height,
+			peers: num_peers,
+			openChannels: num_active_channels,
+			warnings: 2,
+		},
 	};
 }
 
