@@ -5,6 +5,10 @@ import React, { Component } from 'react';
 import { loadStatuses } from '../../redux/actions/status';
 
 class StatusWidget extends Component {
+	componentDidMount() {
+		this.props.loadStatuses();
+	}
+
 	render() {
 		const { state } = this.props;
 
