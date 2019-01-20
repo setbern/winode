@@ -21,14 +21,16 @@ export function sendMoney({ amount, address }) {
 
 		return fetch('http://localhost:4200/initiate-transaction', {
 			method: 'POST',
-			body: {
+			body: JSON.stringify({
 				amount,
 				address,
+			}),
+			headers: {
+				"Content-Type": "application/json",
 			},
 		})
 			.then(response => response.json())
 			.then(data => {
-				console.log('got data', data);
 				return dispatch(receiveTransaction(data));
 			});
 	}
