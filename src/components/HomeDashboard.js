@@ -7,9 +7,11 @@ import '../styles/HomeDashBoard.css';
 import { LOG_OUTPUT } from '../constants';
 
 import Title from './Title';
+import Text from './Text';
 import TerminalText from './TerminalText';
 import RedditWidget from './RedditWidget';
 import DashboardCharts from './DashboardCharts';
+import StatusWidget from './StatusWidget';
 
 const OtherDashBoardThing = () => {
 	return(
@@ -51,9 +53,14 @@ const DashBoardWrapper = (props) => {
 const WidgetWrapper = (props) => {
 	return (
 		<div className='WidgetWrapper'>
-			<div className='WidgetWrapperTitle'>
-				<Title  subtitle>{props.title}</Title>
-			</div>
+			{
+				props.title ?
+					<div className='WidgetWrapperTitle'>
+						<Title  subtitle>{props.title}</Title>
+					</div>
+				:
+					null
+			}
 			{props.children}
 		</div>
 	)
@@ -79,12 +86,14 @@ const TerminalOutputWidget = (props) => {
 
 const SplitWidgetColumn = (props) => {
 	return (
-		<div className='SplitWidgetColumn'>
+		<div className={'SplitWidgetColumn ' +  (props.className ? props.className : '') }>
 			{props.children}
 		</div>
 	)
 }
 const SplitWidgetRow = (props) => {
+	console.log('SplitWidgetRow', props)
+	console.log(props.className ? props.className : 'fackshit')
 	return (
 		<div className={'SplitWidgetRow ' + (props.className ? props.className : '')}>
 			{props.children}
@@ -146,17 +155,17 @@ export default class HomeDashboard extends Component {
 			     				<RedditWidget />
 			     			</WidgetWrapper>
 			     			<SplitWidgetColumn
-			     				className='statsWraooer'
+			     				className='statsWrapperr'
 			     			>
 			     				<WidgetWrapper
 			     					title={'Stats'}
 			     				>
-			     				
+			     					<StatusWidget />
 			     				</WidgetWrapper>
 			     				<WidgetWrapper
-			     					title={''}
+
 			     				>
-			     					
+			     					<Text>testing</Text>
 			     				</WidgetWrapper>
 			     			</SplitWidgetColumn>
 			     		</DashBoardWrapper>

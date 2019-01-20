@@ -24,6 +24,10 @@ const TerminalText = styled.p`
         font-weight: 700;
         
     `}
+    ${is('error') `
+        color: ${colors.red};
+        
+    `}
 `
 
 export default TerminalText
