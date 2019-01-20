@@ -10,9 +10,13 @@ function requestStatuses() {
 }
 
 function receiveStatuses(data) {
+	const { block_height, num_peers, num_active_channels } = data;
 	return {
 		type: RECEIVE_STATUSES,
-		data,
+		blockHeight: block_height,
+		peers: num_peers,
+		openChannels: num_active_channels,
+		warnings: 2,
 	};
 }
 
@@ -20,33 +24,10 @@ export function loadStatuses() {
 	return dispatch => {
 		dispatch(requestStatuses());
 
-		const options = {
-			url: 'https://localhost:8080/v1/getinfo',
-			rejectUnauthorized: false,
-			json: true,
-		};
-
-		return new Promise((resolve, reject) => {
-			request.get(options, function(err, res, body) {
-				resolve(body);
-			});
-		})
-			.then(body => {
-				return dispatch(receiveStatuses(body));
-			});
-
-			/*
-		return fetch('http://localhost:8080/v1/getinfo', {
-			rejectUnauthorized: false,
-		})
-			.then(response => {
-				console.log('got response', response);
-				return response.json();
-			})
+		return fetch('http://localhost:4200/lightning-status')
 			.then(data => {
 				console.log('got data', data);
 				return dispatch(receiveStatuses(data));
 			});
-			*/
 	}
 }
