@@ -24,18 +24,22 @@ class StatusWidget extends Component {
 			<ThemeProvider theme={Theme.light}>
 				<Container>
 					<StatusIndicator>
+						Peers:
 						{peers}
 					</StatusIndicator>
 
 					<StatusIndicator>
+						Open Channels:
 						{openChannels}
 					</StatusIndicator>
 
 					<StatusIndicator>
+						Block Height:
 						{blockHeight}
 					</StatusIndicator>
 
 					<StatusIndicator>
+						Warnings:
 						{warnings}
 					</StatusIndicator>
 				</Container>
