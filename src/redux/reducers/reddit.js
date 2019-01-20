@@ -1,18 +1,28 @@
-import { LOAD_SUBREDDIT } from '../actions/reddit/actionTypes';
+import {
+  RECEIVE_POSTS,
+  REQUEST_POSTS,
+} from '../actions/reddit/actionTypes';
 
 const initialState = {
-  selectedSubreddit: '',
+  isFetching: false,
   posts: [],
+  selectedSubreddit: '',
 };
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case LOAD_SUBREDDIT:
-      const { subreddit } = action;
-
+    case REQUEST_POSTS:
       return {
         ...state,
-        selectedSubreddit: subreddit,
+        isFetching: true,
+        selectedSubreddit: action.subreddit,
+      };
+
+    case RECEIVE_POSTS:
+      return {
+        ...state,
+        isFetching: false,
+        posts: action.posts,
       };
 
     default:
