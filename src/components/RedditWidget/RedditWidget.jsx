@@ -1,10 +1,23 @@
 import { connect } from 'react-redux';
 import { get } from 'lodash';
 import React, { Component } from 'react';
+import styled, { ThemeProvider } from 'styled-components';
 
 import { fetchSubreddit } from '../../redux/actions/reddit';
+import RedditPost from './RedditPost';
+import '../../styles/RedditWidget.css';
+import Theme from '../../constants/theme';
 
 const DEFAULT_SUBREDDIT = 'bitcoin';
+
+const Container = styled.div``;
+const PostsContainer = styled.div`
+  background: ${props => props.theme.black};
+`;
+const WidgetTitle = styled.div`
+  background: ${props => props.theme.background};
+  color: ${props => props.theme.title};
+`;
 
 class RedditWidget extends Component {
   constructor(props) {
@@ -39,11 +52,10 @@ class RedditWidget extends Component {
     const { posts } = this.props;
           console.log('post', posts)
 
-    return posts.map((post, i) => {
+    console.log('posts', posts);
+    return posts.map(post => {
       return (
-        <div key={i}>
-          I am post {i}
-        </div>
+        <RedditPost key={post.id} post={post} />
       );
     });
   }
@@ -53,17 +65,18 @@ class RedditWidget extends Component {
     const { search } = this.state;
 
     return (
-      <div>
-        {
-          // <input value={search} onChange={this.handleSubredditChange} />
-          // <button onClick={this.handleSearchSubmit}>
-          //   Search
-          // </button>
-        }
-        
-        Currently showing r/{selectedSubreddit}
-        {this.renderPosts()}
-      </div>
+
+      <ThemeProvider theme={Theme.light}>
+        <Container>
+          <WidgetTitle>
+            Reddit Stream
+          </WidgetTitle>
+
+          <PostsContainer>
+            {this.renderPosts()}
+          </PostsContainer>
+        </Container>
+      </ThemeProvider>
     );
   }
 }
