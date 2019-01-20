@@ -1,6 +1,7 @@
 import fetch from 'cross-fetch';
 
 import { REQUEST_TRANSACTION, RECEIVE_TRANSACTION } from './actionTypes';
+import { addToBalance } from '../wallet';
 
 function requestTransaction() {
 	return {
@@ -31,6 +32,7 @@ export function sendMoney({ amount, address }) {
 		})
 			.then(response => response.json())
 			.then(data => {
+				dispatch(addToBalance(amount));
 				return dispatch(receiveTransaction(data));
 			});
 	}

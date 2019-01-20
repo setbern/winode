@@ -2,17 +2,34 @@ import { connect } from 'react-redux';
 import React, { Component } from 'react';
 
 class BalanceWidget extends Component {
+	componentDidMount() {
+		const { loadBalance } = this.props;
+		loadBalance();
+	}
+
 	render() {
-		return null;
+		const { balance } = this.props;
+
+		<ThemeProvider theme={Theme}>
+			<Container>
+				Balance: {balance} satoshi
+			</Container>
+		</ThemeProvider>
 	}
 }
 
 function mapStateToProps(state) {
-	return {};
+	return {
+		balance: get(state, 'wallet.balance'),
+	};
 }
 
 function mapDispatchToProps(dispatch) {
-	return {};
+	return {
+		loadBalance() {
+			dispatch(loadWalletBalance());
+		}
+	};
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(BalanceWidget);
