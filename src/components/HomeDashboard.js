@@ -110,6 +110,9 @@ const TerminalWidget = (props) => {
 }
 
 const ActivityWidget = (props) => {
+	function renderActivityWidget() {
+
+	}
 	return (
 		<div className='ActivityWidget'>
 
@@ -154,20 +157,25 @@ export default class HomeDashboard extends Component {
 			     			>
 			     				<RedditWidget />
 			     			</WidgetWrapper>
-			     			<SplitWidgetColumn
-			     				className='statsWrapperr'
-			     			>
-			     				<WidgetWrapper
-			     					title={'Stats'}
+			     			{
+			     				<SplitWidgetColumn
+			     					className='statsWrapperr'
 			     				>
-			     					<StatusWidget />
-			     				</WidgetWrapper>
-			     				<WidgetWrapper
+				     				<WidgetWrapper
+				     					title={'Stats'}
+				     				>
+				     					<StatusWidget />
+				     				</WidgetWrapper>
+				     				<WidgetWrapper
 
-			     				>
-			     					<Text>testing</Text>
-			     				</WidgetWrapper>
-			     			</SplitWidgetColumn>
+				     				>
+										<div className='vert'/>
+										<div className='hor'/>
+										
+				     				</WidgetWrapper>
+				     			</SplitWidgetColumn>
+			     			}
+			     			
 			     		</DashBoardWrapper>
 			     	</div>
 		     	</ThemeProvider>

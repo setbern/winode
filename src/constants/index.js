@@ -15,6 +15,17 @@ export const LOG_OUTPUT = [
 ];
 
 
+export const ACTIVITY_WIDGET = [
+    {
+        direction: '',
+        directionIcon: '',
+        day: '',
+        month: '',
+        amount: '',
+        status: true,
+    },
+
+];
 export const API_BASE_URL =  'https://www.setcoins.com';
 const API_VERSION = 1;
 

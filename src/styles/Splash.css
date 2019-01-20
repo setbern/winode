@@ -6,9 +6,45 @@
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
+	transition: all ease .5s;
+	opacity: 0;
+}
+
+.Splash.page-appear{
+	opacity: 1;
+}
+
+.Splash.page-appear-active{
+	opacity: 1;
+}
+
+.Splash.page-enter{
+	opacity: 1;
+}
+
+.Splash.page-active{
+	opacity: 1;
+}
+
+.Splash.page-enter-done{
+	opacity: 1;
+}
+
+.Splash.page-exit{
+	opacity: 0;
+}
+.Splash.page-exit-active{
+	opacity: 0;
+}
+.Splash.page-exit-done{
+	opacity: 0;
 }
 
 
+input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
 
 @media screen and (min-width: 1000px) {
     .Splash{
@@ -60,3 +96,39 @@
 	flex: 1;
 	height: 160px;
 }
+
+.PinClickOverlay{
+	position: absolute;
+	width: 100vw;
+	height: 100vh;
+	z-index: 500;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background-color: rgba(0,0,0,0.5);
+	transition:  all ease .4s;
+	opacity: 0;
+}
+
+.PinClickOverlay.pin-enter{
+	opacity: 0;
+}
+.PinClickOverlay.pin-enter-active{
+
+}
+.PinClickOverlay.pin-enter-done{
+	opacity: 1;
+}
+
+.PinClickOverlay.pin-exit{
+	opacity: 1;
+}
+.PinClickOverlay.pin-exit-active{
+
+}
+
+.PinClickOverlay.pin-exit-done {
+	opacity: 0;
+}
+

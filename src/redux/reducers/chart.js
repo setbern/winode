@@ -1,11 +1,6 @@
 import api from '../../scripts/api';
 import moment from 'moment';
 
-import {
-  RECEIVE_POSTS,
-  REQUEST_POSTS,
-} from '../actions/reddit/actionTypes';
-
 import { CHART_METRIC_TYPES, DATE_INTERVALS } from '../../constants';
 
 const initialState = {
