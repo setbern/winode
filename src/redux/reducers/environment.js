@@ -1,6 +1,6 @@
 const initialState = {
   pinOverlay: false,
-  home: true,
+  home: false,
   dashboard: false,
 };
 

@@ -33,7 +33,7 @@ const WidgetMini = (props) => {
 }
 const Side = (props) => {
 	return (
-		<div className={'Side ' + props.side }>
+		<div className={'Side ' + props.side } style={{ width: '36vw' }}>
 			{props.children}
 		</div>
 	)
@@ -78,37 +78,44 @@ class Splash extends Component {
 			     			</PinClickOverlay>
 			     		</AnimationWrapper>
 			     		<Side side='left'>
-			     			<Title mainTitle >WiNode</Title>
-			     			<TerminalText mainTitle >Platform Terminal for your needs</TerminalText>
-			     			<Text>Lorem Khaled Ipsum is a major key to success. Look at the sunset, life is amazing, life is beautiful, life is what you make it. In life there will be road blocks but we will over come it. Surround yourself with angels, positive energy, beautiful people, beautiful souls, clean heart, angel. The key to more success is to get a massage once a week, very important, major key,</Text>
+			     			<Title mainTitle style={{ fontSize: '5rem', }}>WiNode</Title>
+			     			<TerminalText mainTitle style={{ margin: '0.5rem' }}>Your Platform.</TerminalText>
+			     			<TerminalText mainTitle style={{margin: '0.5rem' }}>Your Tools.</TerminalText>
+			     			<TerminalText mainTitle style={{ margin: '0.5rem' }}>Your Money.</TerminalText>
+			     			<Text style={{ fontSize: '1.25rem' }}>The way we use money is changing. As part of a new wave of financial ownership, you deserve a platform with the tools you need to succeed.</Text>
 			     			<Text 
 			     				title 
 			     				customColor={colors.purple} 
 			     				style={{marginTop: '60px'}}
 			     				onClick={() => this.props.togglePinOverlay(true)}
 			     			>
-			     				Please Plug in your key to get started
+									Plug in your USB key and click here to begin.
 			     			</Text>
 			     		</Side>
 			     		<Side side='right'>
 			     			<WidgetMini
-			     				title='Send Amount to wallet'
+			     				title='Customizable Widgets'
 			     			>
-			     				<TerminalTextSection>1FfmbHfnpaZjKFvyi1okTjJJusN455paPH</TerminalTextSection>
+								 <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+									<img style={{ height: '4vw', width: '30%', objectFit: 'contain' }}src="https://vignette.wikia.nocookie.net/central/images/1/10/Reddit.png/revision/latest?cb=20171025091848" />
+									<img style={{ height: '4vw', width: '30%', objectFit: 'contain' }} src="https://www.coinbase.com/assets/mobile/store_listing_icon-ffbf3ec7c91090dd1f403464fad41560dac96ce04b7d86e7a459ea09c6522c18.png" />
+									<img style={{ height: '3vw', width: '30%', objectFit: 'contain' }} src="https://www.samaritans.org/sites/default/files/branch/twitter_logo_bird_transparent_png.png" />
+								 </div>
 			     			</WidgetMini>
 			     			<WidgetMini
-			     				title='Send Amount to wallet'
+			     				title='Explore Lightning Channels'
 			     			>
-			     				<TerminalTextSection>1FfmbHfnpaZjKFvyi1okTjJJusN455paPH</TerminalTextSection>
+								 	<div style={{ display: 'flex' }}>
+										<img src="https://cdn-images-1.medium.com/max/1600/1*T2KX_IQRZDOy_OMzHMb11A.png" style={{ height: '12vw', width: '100%', objectFit: 'cover' }} />
+									</div>
 			     			</WidgetMini>
 			     			<div className='minishit'>
-			     				<WidgetMini
-			     					title='Send Amount to wallet'
+			     				<WidgetMini 
+			     					title='Node monitoring'
 			     				>
-			     				</WidgetMini>
-			     				<WidgetMini
-			     					title='Send Amount to wallet'
-			     				>
+										<TerminalTextSection>
+											Pruning channel graph using block 007da346c156ccfca39b7dee6af5100974b0fa56732b0c2b1865 (height=1453184)
+										</TerminalTextSection>
 			     				</WidgetMini>
 			     			</div>
 			     		</Side>
