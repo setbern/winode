@@ -1,8 +1,16 @@
 import { connect } from 'react-redux';
 import { get } from 'lodash';
 import React, { Component } from 'react';
+import styled, { ThemeProvider } from 'styled-components';
 
 import { loadStatuses } from '../../redux/actions/status';
+import Theme from '../../constants/theme';
+
+const Container = styled.div`
+	display: flex;
+	flex-direction: column;
+`;
+const StatusIndicator = styled.div``;
 
 class StatusWidget extends Component {
 	componentDidMount() {
@@ -10,13 +18,28 @@ class StatusWidget extends Component {
 	}
 
 	render() {
-		const { state } = this.props;
+		const { blockHeight, peers, openChannels, warnings } = this.props;
 
 		return (
-			<div>
-				I am the status widget
-				{JSON.stringify(state)}
-			</div>
+			<ThemeProvider theme={Theme.light}>
+				<Container>
+					<StatusIndicator>
+						{peers}
+					</StatusIndicator>
+
+					<StatusIndicator>
+						{openChannels}
+					</StatusIndicator>
+
+					<StatusIndicator>
+						{blockHeight}
+					</StatusIndicator>
+
+					<StatusIndicator>
+						{warnings}
+					</StatusIndicator>
+				</Container>
+			</ThemeProvider>
 		);
 	}
 }
@@ -27,7 +50,6 @@ function mapStateToProps(state) {
 		openChannels: get(state, 'status.openChannels') || 0,
 		blockHeight: get(state, 'status.blockHeight') || 0,
 		warnings: get(state, 'status.warnings') || 0,
-		state,
 	};
 }
 
