@@ -41,7 +41,7 @@
 
 .WidgetWrapperTitle{
 	text-align: left;
-	margin: 8px 8px 8px 8px;
+	margin: 2px 8px 2px 8px;
 }
 .TerminalOutputWidget{
 	max-width: 250px;	
@@ -63,8 +63,44 @@
 }
 
 .SplitWidgetRow{
+	flex: 1;
 	display: flex;
 	flex-direction: row;
+	margin-top: 8px;
+}
+.SplitWidgetRow .WidgetWrapper{
+	
+	display: flex;
+	flex-grow: 1;
+	flex-direction: column;
+	overflow: hidden;
+	overflow-y: scroll;
+}
+
+.SplitWidgetRow .WidgetWrapper:nth-child(1){
+	
+	margin-right: 8px;
+}
+
+.TerminalWidget{
+	background-color: #181A1C;
+	display: flex;
+	flex-grow: 1;
+	flex-direction: column;
+	overflow: hidden;
+	overflow-y: scroll;
+	align-items: flex-start;
+}
+.TerminalWidget p{
+	margin-left: 12px;
+}
+
+.ActivityWidget{
+	display: flex;
+	flex-grow: 1;
+	flex-direction: column;
+	overflow: hidden;
+	overflow-y: scroll;
 }
 .SplitWidgetColumn .WidgetWrapper{
 	position: relative;

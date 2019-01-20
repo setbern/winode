@@ -52,7 +52,7 @@ const WidgetWrapper = (props) => {
 	return (
 		<div className='WidgetWrapper'>
 			<div className='WidgetWrapperTitle'>
-				<Title subtitle>{props.title}</Title>
+				<Title  subtitle>{props.title}</Title>
 			</div>
 			{props.children}
 		</div>
@@ -86,12 +86,27 @@ const SplitWidgetColumn = (props) => {
 }
 const SplitWidgetRow = (props) => {
 	return (
-		<div className='SplitWidgetRow'>
+		<div className={'SplitWidgetRow ' + (props.className ? props.className : '')}>
 			{props.children}
 		</div>
 	)
 }
 
+const TerminalWidget = (props) => {
+	return (
+		<div className='TerminalWidget'>
+			<TerminalText bold>WiNode</TerminalText>
+		</div>
+	)
+}
+
+const ActivityWidget = (props) => {
+	return (
+		<div className='ActivityWidget'>
+
+		</div>
+	)
+}
 export default class HomeDashboard extends Component {
 	render() {
 	    
@@ -116,12 +131,12 @@ export default class HomeDashboard extends Component {
 			     					<WidgetWrapper
 			     						title={'Activity'}
 			     					>
-			     					
+			     						<ActivityWidget />
 			     					</WidgetWrapper>
 			     					<WidgetWrapper
 			     						title={'Terminal'}
 			     					>
-			     					
+			     						<TerminalWidget />
 			     					</WidgetWrapper>
 			     				</SplitWidgetRow>
 			     			</SplitWidgetColumn>
@@ -130,7 +145,9 @@ export default class HomeDashboard extends Component {
 			     			>
 			     				<RedditWidget />
 			     			</WidgetWrapper>
-			     			<SplitWidgetColumn>
+			     			<SplitWidgetColumn
+			     				className='statsWraooer'
+			     			>
 			     				<WidgetWrapper
 			     					title={'Stats'}
 			     				>
@@ -139,7 +156,7 @@ export default class HomeDashboard extends Component {
 			     				<WidgetWrapper
 			     					title={''}
 			     				>
-			     				
+			     					
 			     				</WidgetWrapper>
 			     			</SplitWidgetColumn>
 			     		</DashBoardWrapper>
