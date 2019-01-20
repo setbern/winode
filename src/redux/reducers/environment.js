@@ -1,7 +1,7 @@
 const initialState = {
   pinOverlay: false,
-  home: false,
-  dashboard: true,
+  home: true,
+  dashboard: false,
 };
 
 export default (state = initialState, action) => {

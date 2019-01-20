@@ -1,11 +1,16 @@
+import { connect } from 'react-redux';
 import React, { Component } from 'react';
+import { get } from 'lodash';
 import { ThemeProvider } from 'styled-components'
 import Theme from '../constants/theme';
 
 import '../styles/HomeDashBoard.css';
 
 import { LOG_OUTPUT } from '../constants';
+import { loadWalletBalance } from '../redux/actions/wallet';
+import { loadStatuses } from '../redux/actions/status';
 
+import Colors from '../constants/colors';
 import Title from './Title';
 import Text from './Text';
 import TerminalText from './TerminalText';
@@ -119,8 +124,14 @@ const ActivityWidget = (props) => {
 		</div>
 	)
 }
-export default class HomeDashboard extends Component {
+class HomeDashboard extends Component {
+	componentDidMount() {
+		this.props.loadStatuses();
+		this.props.loadBalance();
+	}
+
 	render() {
+		const { balance, openChannels } = this.props;
 	    
 	      return (  
 	      		<ThemeProvider theme={Theme.light}>
@@ -140,10 +151,14 @@ export default class HomeDashboard extends Component {
 			     					<DashboardCharts />
 			     				</WidgetWrapper>
 			     				<SplitWidgetRow>
-			     					<WidgetWrapper
-			     						title={'Activity'}
-			     					>
-			     						<ActivityWidget />
+			     					<WidgetWrapper title="Lightning">
+										 	<div style={{ fontSize: '1.25rem' }}>
+												<p style={{}}>Balance: {balance}</p>
+												<p style={{}}>On {openChannels} open channels</p>
+											</div>
+											 {/* <div style={{ height: '100%', width: '100%', backgroundColor: `${Colors.purple}`, color: `${Colors.white}`, display: 'flex', justifyContent: 'center', alignItems: 'center', fontSize: '2rem' }}>
+											 	Lightning
+											</div> */}
 			     					</WidgetWrapper>
 			     					<WidgetWrapper
 			     						title={'Terminal'}
@@ -182,3 +197,23 @@ export default class HomeDashboard extends Component {
 	    );
 	}
 }
+
+function mapStateToProps(state) {
+	return {
+		balance: get(state, 'wallet.balance'),
+		openChannels: get(state, 'status.openChannels'),
+	};
+}
+
+function mapDispatchToProps(dispatch) {
+	return {
+		loadStatuses() {
+			dispatch(loadStatuses());
+		},
+		loadBalance() {
+			dispatch(loadWalletBalance());
+		},
+	}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(HomeDashboard);

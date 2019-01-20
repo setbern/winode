@@ -33,11 +33,17 @@
 	max-width: 1600px;
 }
 
-.WidgetWrapper{
+.WidgetWrapper {
 	background-color: #F9FAFC;
 	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
 	display: flex;
 	flex-direction: column;
+
+}
+
+.WidgetWrapper:hover {
+	box-shadow: 0 8px 12px 0 rgba(0,0,0,0.5);
+	transition: 0.5s;
 }
 
 .WidgetWrapperTitle{
@@ -51,7 +57,7 @@
 	flex-grow: 1;
 	flex-direction: column;
 	overflow: hidden;
-	overflow-y: scroll;
+	overflow-y: auto;
 
 }
 
@@ -75,7 +81,7 @@
 	flex-grow: 1;
 	flex-direction: column;
 	overflow: hidden;
-	overflow-y: scroll;
+	overflow-y: auto;
 }
 
 .SplitWidgetRow .WidgetWrapper:nth-child(1){
@@ -89,7 +95,7 @@
 	flex-grow: 1;
 	flex-direction: column;
 	overflow: hidden;
-	overflow-y: scroll;
+	overflow-y: auto;
 	align-items: flex-start;
 }
 .TerminalWidget p{
@@ -101,7 +107,7 @@
 	flex-grow: 1;
 	flex-direction: column;
 	overflow: hidden;
-	overflow-y: scroll;
+	overflow-y: auto;
 }
 .SplitWidgetColumn .WidgetWrapper{
 	position: relative;
@@ -123,7 +129,7 @@
 	flex-grow: 4;
 	flex-direction: column;
 	overflow: hidden;
-	overflow-y: scroll;
+	overflow-y: auto;
 }
 .statsWrapperr .WidgetWrapper:nth-child(2){
 	display: flex;
@@ -157,4 +163,5 @@
 	background-color: #00D1B2;
 	width: 50%;
 	height: 8px;
+	
 }

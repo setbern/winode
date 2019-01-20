@@ -6,6 +6,7 @@ import Splash from './Splash';
 import HomeDashboard from './HomeDashboard';
 import Navigation from './Navigation';
 import AnimationWrapper from './AnimationWrapper';
+import LightningPage from '../pages/LightningPage';
 
 import { togglePinOverlay, toggleHomePage, toggleDashboard } from '../redux/reducers/environment';
 
@@ -47,7 +48,16 @@ class App extends Component {
 	     		>
 	     			<HomeDashboard />
 	     		</AnimationWrapper>
-	     		
+	     		<AnimationWrapper
+	     			in={this.props.home && !this.props.dashboard}
+	     			classNames='page'
+	     			timeout={{
+	     				enter: 1500,
+	     				exit: 500
+	     			}}
+	     		>
+	     			<LightningPage />
+	     		</AnimationWrapper>
 	     	</div>
     	);
   	}
