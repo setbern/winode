@@ -30,7 +30,7 @@ export default (state = initialState, action) => {
 
 			return {
 				...state,
-				balance: state.balance + amount,
+				balance: +state.balance - +amount,
 			};
 		
 		default:
