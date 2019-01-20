@@ -71,7 +71,7 @@ class Splash extends Component {
 			     		>
 			     			<PinClickOverlay>
 			     				<ReactCodeInput 
-			     					type='number' 
+			     					type='password' 
 			     					fields={6} 
 			     					onChange={this.handleChange}
 			     				/>
@@ -86,7 +86,7 @@ class Splash extends Component {
 			     			<Text 
 			     				title 
 			     				customColor={colors.purple} 
-			     				style={{marginTop: '60px'}}
+			     				style={{marginTop: '60px', cursor: 'pointer' }}
 			     				onClick={() => this.props.togglePinOverlay(true)}
 			     			>
 									Plug in your USB key and click here to begin.
