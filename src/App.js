@@ -1,3 +1,4 @@
+import 'babel-polyfill';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import React, { Component } from 'react';

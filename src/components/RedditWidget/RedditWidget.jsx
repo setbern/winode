@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { get } from 'lodash';
 import React, { Component } from 'react';
 
-import { loadSubreddit } from '../../redux/actions/reddit';
+import { fetchSubreddit } from '../../redux/actions/reddit';
 
 const DEFAULT_SUBREDDIT = 'bitcoin';
 
@@ -35,6 +35,18 @@ class RedditWidget extends Component {
     loadPosts(search);
   }
 
+  renderPosts() {
+    const { posts } = this.props;
+
+    return posts.map((post, i) => {
+      return (
+        <div key={i}>
+          I am post {i}
+        </div>
+      );
+    });
+  }
+
   render() {
     const { selectedSubreddit } = this.props;
     const { search } = this.state;
@@ -46,6 +58,7 @@ class RedditWidget extends Component {
           Search
         </button>
         Currently showing r/{selectedSubreddit}
+        {this.renderPosts()}
       </div>
     );
   }
@@ -61,7 +74,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     loadPosts(subreddit) {
-      return dispatch(loadSubreddit(subreddit));
+      return dispatch(fetchSubreddit(subreddit));
     },
   };
 }

@@ -2,8 +2,8 @@ import { combineReducers } from 'redux';
 
 import reddit from './reddit';
 
-const winode = combineReducers({
+const rootReducer = combineReducers({
   reddit,
 });
 
-export default winode;
+export default rootReducer;

@@ -1,14 +1,20 @@
-import { createStore } from 'redux';
+import { applyMiddleware, createStore } from 'redux';
 import { Provider } from 'react-redux';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import thunk from 'redux-thunk';
 
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import winode from './redux/reducers';
+import rootReducer from './redux/reducers';
 
-const store = createStore(winode);
+const store = createStore(
+  rootReducer,
+  applyMiddleware(
+    thunk,
+  ),
+);
 
 ReactDOM.render(
   <Provider store={store}>
