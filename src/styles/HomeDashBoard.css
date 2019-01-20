@@ -1,0 +1,43 @@
+.HomeDashboard{
+	height: 100vh;
+	width: 100vw;
+	position: relative;
+}
+
+.Navigation{
+	height: 64px;
+	width: 100%;
+	background: #F9FAFC;
+	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
+	position: relative;
+	z-index: 100;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: flex-start;
+}
+.Navigation p {
+	z-index: 100;
+	margin-left: 4%;
+}
+
+.NavThing{
+	position: absolute;
+	left: 0;
+}
+.OtherDashBoardThing{
+
+}
+
+.DashBoardThing{
+	position: absolute;
+	z-index: -1;
+	left: 0;
+	top: 65;
+}
+.OtherDashBoardThing{
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	z-index: -1;
+}
